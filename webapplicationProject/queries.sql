@@ -1,1 +1,1 @@
-SELECT * FROM class101 WHERE gpa > 2;
+SELECT password FROM users WHERE username = 'rodolfo123';

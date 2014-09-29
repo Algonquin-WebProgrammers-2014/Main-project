@@ -1,4 +1,12 @@
-package sample;
+/**
+ * Responsible for checking the password in the database for client users
+ * 
+ * @author Rodolfo Navalon
+ * @version 0.1
+ * @see Authenticator
+ * **/
+package net.login;
+
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
@@ -14,19 +22,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import SecureAuthentication.Authenticator;
+import Utilities.DatabaseConnection;
 
-public class SampleOutput extends HttpServlet
+public class UserLogin extends HttpServlet
 {
+	
+	public final String db = "storedb";
+	public final String username = "rodolfouser";
+	public final String password = "poldz123";
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-//		try {
-//			for(int i = 0; i < 1000; i++)
-//				resp.getWriter().println(Authenticator.createHashPassword("rodolfo".toCharArray()));
-//		} catch (InvalidKeySpecException | NoSuchAlgorithmException
-//				| NoSuchProviderException e) {
-//			e.printStackTrace();
-//		}
+
 	}
 	
 	@Override
@@ -34,13 +42,13 @@ public class SampleOutput extends HttpServlet
 			throws ServletException, IOException {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:8888/studentdb","rodolfouser","poldz123");
+			Connection conn = DatabaseConnection.createDataBaseConnection(db,username,password);
 			Statement s = (Statement) conn.createStatement();
 			String username = req.getParameter("first_name");
 			String password = req.getParameter("last_name");
 			try {
 				ResultSet result = s.executeQuery("SELECT password FROM users WHERE username = '"+username +"'");
-				
+
 				while(result.next())
 				{
 					String dataPassword = result.getString("password");
@@ -57,8 +65,7 @@ public class SampleOutput extends HttpServlet
 			} catch (InvalidKeySpecException | NoSuchAlgorithmException e) {
 				e.printStackTrace();
 			}finally{
-				s.close();
-				conn.close();
+				DatabaseConnection.closeDataBaseConnection(conn,s);
 			}
 
 		} catch (SQLException e) {

@@ -1,21 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <servlet>
-  	<servlet-name>Sample2</servlet-name>
-  	<servlet-class>sample.SampleOutput</servlet-class>
+  	<servlet-name>UserLogin</servlet-name>
+  	<servlet-class>net.login.UserLogin</servlet-class>
   </servlet>
-  <servlet-mapping>
-  	<servlet-name>Sample2</servlet-name>
-  	<url-pattern>/rodolfo</url-pattern>
-  </servlet-mapping>
   <servlet>
-  	<servlet-name>Sample</servlet-name>
-  	<servlet-class>sample.SampleOutput</servlet-class>
+  	<servlet-name>StoreLogin</servlet-name>
+  	<servlet-class>net.login.StoreLogin</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UpdateData</servlet-name>
+  	<servlet-class>net.update.DatabaseUpdate</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>Sample</servlet-name>
-  	<url-pattern>/rodolfo2</url-pattern>
+  	<servlet-name>UserLogin</servlet-name>
+  	<url-pattern>/userlogin</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UpdateData</servlet-name>
+  	<url-pattern>/updatedata</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+  	<servlet-name>StoreLogin</servlet-name>
+  	<url-pattern>/storelogin</url-pattern>
+  </servlet-mapping>
+
   <display-name>webapplicationProject</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
