@@ -26,23 +26,35 @@ import Utilities.DatabaseConnection;
 
 public class StoreLogin extends HttpServlet{
 
-	public final String db = "storedb";
-	public final String username = "rodolfouser";
-	public final String password = "poldz123";
+	private final String db = "storedb";
+	private final String username = "rodolfouser";
+	private final String password = "poldz123";
 	
+	/**
+	 * Create a script for showing the alert box.
+	 * 
+	 * @param resp 	response from the Servlet
+	 * @param message	the message to be shown in the alert box
+	 */
 	public void showAlert(HttpServletResponse resp, String message) throws IOException{
 		resp.getWriter().print("<script>alert('"+message+"');location='verification/store/'</script>");
 	}
+	
+	/**
+	 * Create a database connection and check the hashpassword inputted by the store using the post method of the HttpServlet.
+	 * Will alert the user if the password is incorrect
+	 */
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
 		HttpSession session = req.getSession(true);
-			
+		Connection conn;
+		Statement s;
+		
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection conn = DatabaseConnection.createDataBaseConnection(db,username,password);
-			Statement s = (Statement) conn.createStatement();
+			conn = DatabaseConnection.createDataBaseConnection(db,username,password);
+			s = (Statement) conn.createStatement();
 			
 			String username = req.getParameter("storeid");
 			String password = req.getParameter("password");
@@ -50,40 +62,37 @@ public class StoreLogin extends HttpServlet{
 			//create the session object
 			session = req.getSession();
 			
-			try {
-				ResultSet result = s.executeQuery("SELECT password FROM store WHERE storeid = '"+username +"'");
+			ResultSet result = s.executeQuery("SELECT password FROM store WHERE storeid = '"+username +"'");
 
-				while(result.next())
+			while(result.next())
+			{
+				String dataPassword = result.getString("password");
+				if(Authenticator.validatePassword(password, dataPassword))
 				{
-					String dataPassword = result.getString("password");
-					if(Authenticator.validatePassword(password, dataPassword))
-					{
-						resp.getWriter().println("\n\nRESULT: Password from USERNAME exist in DATABASE. You are log in to the server");
-						resp.sendRedirect("mainpage/store/orderlist.jsp");
-						session.setAttribute("store", username);
-					}
-					else
-					{
-						showAlert(resp,"Wrong password or username");
-					}
-					
-					return;
+					resp.getWriter().println("\n\nRESULT: Password from USERNAME exist in DATABASE. You are log in to the server");
+					resp.sendRedirect("mainpage/store/orderlist.jsp");
+					session.setAttribute("store", username);
 				}
-				
-				showAlert(resp,"Wrong password or username");	
-				
-			} catch (InvalidKeySpecException | NoSuchAlgorithmException e) {
-				resp.getWriter().print("RESULT:  Password from USERNAME does not exist in DATABASE");
-				e.printStackTrace();
-			}finally{
+				else
+				{
+					showAlert(resp,"Wrong password or username");
+				}
+					
 				DatabaseConnection.closeDataBaseConnection(conn,s);
+				return;
 			}
+				
+			showAlert(resp,"Wrong password or username");	
+			DatabaseConnection.closeDataBaseConnection(conn,s);
 
 		} catch (SQLException e) {
 			e.printStackTrace();	
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-		} finally {
+		} catch (InvalidKeySpecException | NoSuchAlgorithmException e) {
+			resp.getWriter().print("RESULT:  Password from USERNAME does not exist in DATABASE");
+			e.printStackTrace();
+		}finally {
 		}
 		
 		
