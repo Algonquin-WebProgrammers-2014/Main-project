@@ -26,49 +26,54 @@ import Utilities.DatabaseConnection;
 
 public class UserLogin extends HttpServlet
 {
+	/**
+	 * The name of the database to be used
+	 */
+	private final String db = "storedb";
 	
-	public final String db = "storedb";
-	public final String username = "rodolfouser";
-	public final String password = "poldz123";
+	/**
+	 * The username of the database to be used
+	 */	
+	private final String username = "rodolfouser";
 	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-
-	}
+	/**
+	 * The password of the database to be used
+	 */
+	private final String password = "poldz123";
 	
+	/**
+	 * Create a database connection and check the hashpassword given by the user using the post method of the HttpServlet.
+	 */
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DatabaseConnection.createDataBaseConnection(db,username,password);
 			Statement s = (Statement) conn.createStatement();
 			String username = req.getParameter("first_name");
 			String password = req.getParameter("last_name");
-			try {
-				ResultSet result = s.executeQuery("SELECT password FROM users WHERE username = '"+username +"'");
-
-				while(result.next())
-				{
-					String dataPassword = result.getString("password");
-					resp.getWriter().print("Hashed-Password: " + dataPassword);
-					if(Authenticator.validatePassword(password, dataPassword))
-						resp.getWriter().println("\n\nRESULT: Password from USERNAME exist in DATABASE. You are log in to the server");
-					else
-						resp.getWriter().println("\n\nRESULT: Password from USERNAME exist in DATABASE. You provide a WRONG password");
-					
-					return;
-				}
-				resp.getWriter().print("RESULT:  Password from USERNAME does not exist in DATABASE");
 				
-			} catch (InvalidKeySpecException | NoSuchAlgorithmException e) {
-				e.printStackTrace();
-			}finally{
-				DatabaseConnection.closeDataBaseConnection(conn,s);
-			}
+			ResultSet result = s.executeQuery("SELECT password FROM users WHERE username = '"+username +"'");
 
-		} catch (SQLException e) {
+			while(result.next())
+			{
+				String dataPassword = result.getString("password");
+				resp.getWriter().print("Hashed-Password: " + dataPassword);
+				if(Authenticator.validatePassword(password, dataPassword))
+					resp.getWriter().println("\n\nRESULT: Password from USERNAME exist in DATABASE. You are log in to the server");
+				else
+					resp.getWriter().println("\n\nRESULT: Password from USERNAME exist in DATABASE. You provide a WRONG password");
+					
+				DatabaseConnection.closeDataBaseConnection(conn, s);
+				return;
+			}
+			resp.getWriter().print("RESULT:  Password from USERNAME does not exist in DATABASE");
+
+			DatabaseConnection.closeDataBaseConnection(conn, s);
+			
+		}catch (InvalidKeySpecException | NoSuchAlgorithmException e) {
+			e.printStackTrace();
+	    } catch (SQLException e) {
 			e.printStackTrace();	
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();

@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 
 public class MultiLang {
 
+	
 	public static ResourceBundle generateResourceBdl(HttpServletRequest request)
 	{
 		Locale locale = null;
