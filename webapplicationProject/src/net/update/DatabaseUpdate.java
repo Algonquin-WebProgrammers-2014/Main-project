@@ -3,7 +3,7 @@
  * 
  * @author Rodolfo Navalon
  * @version 0.1
- * @see Authenticator
+ * @see DatabaseUpdate
  * **/
 package net.update;
 
@@ -16,6 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class DatabaseUpdate extends HttpServlet{
+	
+	/**
+	 * Will update the database table or alter a table to delete some value within the table
+	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {

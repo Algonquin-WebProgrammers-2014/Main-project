@@ -3,7 +3,7 @@
  * 
  * @author Rodolfo Navalon
  * @version 0.1
- * @see Authenticator
+ * @see DatabaseConnection
  * **/
 
 package Utilities;

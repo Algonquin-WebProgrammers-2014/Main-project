@@ -3,16 +3,29 @@
  * 
  * @author Rodolfo Navalon
  * @version 0.1
- * @see Authenticator
+ * @see ContextVariable
  * **/
 package Utilities;
 
 public class ContextVariable {
+	
+	/**
+	 * The enum variable for extinguishing the current status of the order
+	 * 
+	 * @author Rodolfo Navalon
+	 * @version 0.1
+	 */
 	public enum Status {
 		ORDER_DELIVERED, PREP_PIZZA, BAKE_PIZZA, OUT_FOR_DELIVERY
 	}
 	
+	/**
+	 * The enum variable for extinguishing which type of pizza the client bought
+	 * 
+	 * @author Rodolfo Navalon
+	 * @version 0.1
+	 */
 	public enum Size {
-		SMALL, PREP_PIZZA, BAKE_PIZZA, OUT_FOR_DELIVERY
+		SMALL, MEDIUM, LARGE, XLARGE
 	}
 }
