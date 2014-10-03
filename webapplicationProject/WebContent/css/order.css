@@ -1,11 +1,5 @@
 @CHARSET "ISO-8859-1";
 
-.parent-container {
-	width: 100%;
-	text-align: center;
-	margin-top: 100px;
-}
-
 .parent-container .child-div-or a {
 	font-size: 30px;
 	font-family:  'Hoefler Text', Georgia, 'Times New Roman', serif;

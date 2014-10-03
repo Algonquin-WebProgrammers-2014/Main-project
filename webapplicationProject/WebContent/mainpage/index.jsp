@@ -1,3 +1,4 @@
+<%@page import="Utilities.ContextVariable"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.ResourceBundle,
@@ -8,21 +9,25 @@
 <head>
 	<head>
 		<link href="${pageContext.request.contextPath}/css/headerfooter.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/master.css">
 		<title>Pizza Ordering System Title Here</title>
 	</head>
 </head>
 
 <body>
 	 <%
+	 	 request.getSession().setAttribute("page", ContextVariable.Page.HOME);
 	     ResourceBundle RB = MultiLang.generateResourceBdl(request);
 	     String greeting = RB.getString("language");
 	 %>
 	 
-	<%@ include file="/includes/header.jsp" %>
+	<%@ include file="/includes/header_title.jsp" %>
 	
-	<div id='content'>
+	<div class='master-container'>
+		<%@ include file="/includes/header_menu.jsp" %>
 		<img src="${pageContext.request.contextPath }/icon/frontpagepizza.jpg"></img>
 	</div>
 	
+	<%@ include file="/includes/footer.jsp" %>
 </body>
 </html>

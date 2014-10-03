@@ -16,7 +16,7 @@
 			<li><a class='styleanchor' href="${pageContext.request.contextPath}/verification/user/"><%= RB.getString("ordernow") %></a></li>
 			<li><a class='styleanchor' href="${pageContext.request.contextPath}/verification/user/">Replace this LOL</a></li>
 			<li><a class='styleanchor' href=index.html>Replace this LOL</a></li>
-			<li><a class='styleanchor' href=index.html>Replace this LOL</a></li>
+			<li><a class='styleanchor' href=index.html>Search Order</a></li>
 			<li><a class='styleanchor' href="${pageContext.request.contextPath}/verification/store/"><%= RB.getString("storelogin") %></a></li>
 		</ul>	
 	</div>

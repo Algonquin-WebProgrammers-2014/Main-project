@@ -28,4 +28,8 @@ public class ContextVariable {
 	public enum Size {
 		SMALL, MEDIUM, LARGE, XLARGE
 	}
+	
+	public enum Page {
+		HOME, ORDERNOW, STORELOGIN, SEARCHORDER, MENU
+	}
 }
