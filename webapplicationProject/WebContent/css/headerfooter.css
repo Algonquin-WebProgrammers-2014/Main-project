@@ -68,6 +68,11 @@
 	float:left;
 }
 
+ #header-cart #cart-title #pizza-cart-item-number{
+	color:#3BFF52; 
+	font-weight: bold
+}
+
  #header-title{
  	display: inline-block;
     padding-top: 8px;

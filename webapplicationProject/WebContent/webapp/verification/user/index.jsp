@@ -18,13 +18,15 @@
 </head>
 <body>
 
+	<%@ include file="/includes/header_title.jsp" %>
+
+
 	 <%
 	 	 request.getSession().setAttribute("page", ContextVariable.Page.ORDERNOW);
-	     ResourceBundle RB = MultiLang.generateResourceBdl(request);
+	     ResourceBundle RB = MultiLang.generateResourceBdl(request,session);
 	     String greeting = RB.getString("language");
 	 %>
 	 
-	<%@ include file="/includes/header_title.jsp" %>
 	
 	<div class="master-container">
 			<%@ include file="/includes/header_menu.jsp" %>

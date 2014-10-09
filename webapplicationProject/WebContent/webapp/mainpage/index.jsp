@@ -17,7 +17,7 @@
 <body>
 	 <%
 	 	 request.getSession().setAttribute("page", ContextVariable.Page.HOME);
-	     ResourceBundle RB = MultiLang.generateResourceBdl(request);
+	     ResourceBundle RB = MultiLang.generateResourceBdl(request,session);
 	     String greeting = RB.getString("language");
 	 %>
 	 
@@ -25,7 +25,7 @@
 	
 	<div class='master-container'>
 		<%@ include file="/includes/header_menu.jsp" %>
-		<img src="${pageContext.request.contextPath }/icon/frontpagepizza.jpg"></img>
+		<h1>Welcome to the homepage</h1>
 	</div>
 	
 	<%@ include file="/includes/footer.jsp" %>

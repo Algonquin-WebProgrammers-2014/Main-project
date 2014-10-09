@@ -70,7 +70,7 @@ public class StoreLogin extends HttpServlet{
 				if(Authenticator.validatePassword(password, dataPassword))
 				{
 					resp.getWriter().println("\n\nRESULT: Password from USERNAME exist in DATABASE. You are log in to the server");
-					resp.sendRedirect("mainpage/store/orderlist.jsp");
+					resp.sendRedirect("webapp/mainpage/store/orderlist.jsp");
 					session.setAttribute("store", username);
 				}
 				else

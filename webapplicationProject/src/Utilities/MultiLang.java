@@ -11,6 +11,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 public class MultiLang {
 
@@ -21,10 +22,10 @@ public class MultiLang {
 	 * @param request	the reference of the HttpServletRequest from the Servlet
 	 * @return			the ResourceBundle of the generated locale from the get parameter of the request
 	 */
-	public static ResourceBundle generateResourceBdl(HttpServletRequest request)
+	public static ResourceBundle generateResourceBdl(HttpServletRequest request , HttpSession session)
 	{
 		Locale locale = null;
-		String lang = request.getParameter("lang");
+		String lang = (String)session.getAttribute("lang");
 		
 		if(lang != null)
 			locale = new Locale(lang);

@@ -37,9 +37,16 @@ public class DatabaseConnection {
 	 * @param s				The reference of the SQL Statement that was opened  
 	 * 	
 	 * **/
-	public static void closeDataBaseConnection(Connection conn, Statement s) throws SQLException {
-		conn.close();
-		s.close();
+	public static void closeDataBaseConnection(Connection conn, Statement... s) throws SQLException {
+		
+		if(conn != null)
+			conn.close();
+		
+		for(Statement s2 : s)
+		{
+			if(s2 != null)
+				s2.close();
+		}
 	}
 	
 	/**
