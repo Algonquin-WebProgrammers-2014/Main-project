@@ -1,8 +1,15 @@
- <%@page import="Utilities.PizzaCollection"%>
+<!-- 
+	Purpose: The Pizza Title on the very top of the page with the name of the store and the cart system
+	Author: Rodolfo Navalon
+	Added in Version: 0.2
+-->
+
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@ page import="java.util.ResourceBundle,Utilities.MultiLang" %>
+<%@ page import="java.util.ResourceBundle,
+ 				 Utilities.MultiLang,
+ 				 Utilities.PizzaCollection" %>
  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 	<%

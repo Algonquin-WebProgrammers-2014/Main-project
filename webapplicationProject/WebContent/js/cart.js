@@ -1,8 +1,16 @@
 /**
- * 
+ *
+ * Purpose: For all the interaction javascript in cart system.
+ * @author Rodolfo Navalon
+ * @since 0.2
  */
 var timer = 0;
 
+/**
+ * The main fucntion when a button is pressed and identify what type is a button that was pressed
+ * @param v - the value
+ * @param id - the id of the button that was pressed
+ * **/
 function toPerform(v,id)
 {
 	if(v.value === "Save") 
@@ -16,7 +24,13 @@ function toPerform(v,id)
 	
 }
 
-function toSave(v,id) 	4
+/**
+ * When a save button is pressed this function will perform to save all the data that was editted in the input box
+ * 
+ * @param v - the value
+ * @param id - the id of the button that was pressed
+ * **/
+function toSave(v,id) 
 {
 	v.className = 'save-button'
 	v.value = 'Save'
@@ -33,6 +47,13 @@ function toSave(v,id) 	4
 	document.getElementById('ixlarge'+id).innerHTML = createInputString(xLargeV);
 }
 
+/**
+ * When a edit button is pressed.
+ * This function will perform to edit the pizza cart and transform all the text to input boxes.
+ * 
+ * @param v - the value
+ * @param id - the id of the button that was pressed
+ * **/
 function toEdit(v,id) 
 {
 	var xmlhttp;
@@ -85,16 +106,35 @@ function toEdit(v,id)
 	xmlhttp.send();
 }
 
+/**
+ * Create a span string
+ * 
+ * @param v - the string to be created
+ * @returns the created span string with the value as its value inside of it.
+ * **/
 function createSpanString(value)
 {
 	return "<span>" + value + "</span>";
 }
 
+/**
+ * Create a input string
+ * 
+ * @param v - the string to be created
+ * @returns the created input string with the value as its value inside of it.
+ * **/
 function createInputString(value)
 {
 	return '<input type="text" value='+ value + ' maxlength="2" size="2"/>'
 }
 
+/**
+ * Call the notification.jsp to be printed on top of the page
+ * 
+ * @param s - the string to be printed in the notification
+ * @param t - the type of notification either warning(red) or success(green)
+ * @returns the created input string with the value as its value inside of it.
+ * **/
 function callNotication(s,t){
 	
 	if(timer)
@@ -117,6 +157,9 @@ function callNotication(s,t){
 	timer = setTimeout(hideFloatinNotif, 3000);
 }
 
+/**
+ * Hide the notification when another notification is going in.
+ * **/
 function hideFloatinNotif(){
 	document.getElementById('floating-notif').setAttribute("style", "display:none;");
 }

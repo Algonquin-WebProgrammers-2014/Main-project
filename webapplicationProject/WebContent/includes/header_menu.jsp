@@ -1,3 +1,9 @@
+<!-- 
+Purpose: The header menu of the website with corresponding sets and gets
+Author: Rodolfo Navalon , Juan Marco Gloriani 
+Added in Version: 0.2
+-->
+
 <%@ page import="java.util.ResourceBundle,
                  Utilities.MultiLang,Utilities.ContextVariable" %>
 	<%

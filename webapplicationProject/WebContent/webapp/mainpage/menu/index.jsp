@@ -1,12 +1,18 @@
+<!-- 
+Purpose: To get the menu on the database and display it in html with there corresponding pizza menu data.
+Author: Rodolfo Navalon  
+Added in Version: 0.2
+-->
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.io.*,java.util.*,java.sql.*"%>
-<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
-<%@ page import="java.util.ResourceBundle,Utilities.MultiLang,Utilities.ContextVariable, Utilities.DatabaseConnection, java.sql.Statement, java.sql.ResultSet" %>
+<%@ page import="java.util.ResourceBundle,
+				 Utilities.MultiLang,
+				 Utilities.ContextVariable" %>
+				 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <!-- Header to be used in different pages -->
