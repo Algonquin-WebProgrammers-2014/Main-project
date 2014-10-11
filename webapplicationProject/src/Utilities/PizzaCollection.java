@@ -1,3 +1,10 @@
+/**
+ * Responsible for collect pizzas
+ * @author Rodofol Navalon
+ * @version 0.2
+ * @see PizzaCollection
+ * 
+ */
 package Utilities;
 
 import java.sql.Connection;
@@ -14,18 +21,28 @@ import pizza.Pizza;
 import pizza.PizzaContext;
 
 public class PizzaCollection {
-//	private List<Pizza> list;
 	private Map<String, PizzaContext> hash;
 	private int size;
 	private double totalPrice = 0;
 	
+	/**
+	 * Responsible for create the collection(hash map)
+	 * @author Rodofol Navalon
+	 * 
+	 * documented by: Changran Liu
+	 */
 	public PizzaCollection(){
-//		list = new ArrayList<>();
 		hash = new HashMap<>();
 	}
 	
+	/**
+	 * Responsible for add pizza to the collection(hash map)
+	 * @author Rodolfo Navalon
+	 * @param pizza - for each individual pizza
+	 * 
+	 * documented by: Changran Liu
+	 */
 	public void add(Pizza pizza){
-//		list.add(pizza);
 		
 		if(hash.get(pizza.getInitial()) == null)
 		{
@@ -38,14 +55,24 @@ public class PizzaCollection {
 		
 	}
 	
-//	public List<Pizza> getList(){
-//		return this.list;
-//	}
-	
+	/**
+	 * Responsible for get the collection(hash map)
+	 * @author Rodolfo Navalon
+	 * @return the hash map
+	 * 
+	 * documented by: Changran Liu
+	 */
 	public Map<String, PizzaContext> getHash(){
 		return this.hash;
 	}
 	
+	/**
+	 * Responsible for get size of the pizza
+	 * @author Rodolfo Navalon
+	 * @return the size of the pizza
+	 * 
+	 * documented by: Changran Liu
+	 */
 	public int getSize(){
 		size = 0;
 		for(String pc : hash.keySet())
@@ -58,6 +85,13 @@ public class PizzaCollection {
 		return this.size;
 	}
 	
+	/**
+	 * Responsible for calculate the total price for different pizza
+	 * @author Rodolfo Navalon
+	 * @return the total price
+	 * 
+	 * documented by: Changran Liu
+	 */
 	public String gettotalPrice(){
 		Connection conn = null;
 		Statement st = null;

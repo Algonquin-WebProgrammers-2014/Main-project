@@ -1,3 +1,10 @@
+/**
+ * Collection of the same type of Pizza
+ * 
+ * @author Rodolfo Navalon
+ * @version 0.2
+ * @Documented by David Yu
+ * **/
 package pizza;
 
 import Utilities.ContextVariable.Size;
@@ -11,11 +18,27 @@ public class PizzaContext {
 	
 	private Pizza pizza;
 	
+	/**
+	 * Sets the pizza object to this class
+	 * and increment its respective size to the collection
+	 * 
+	 * @author Rodolfo Navalon
+	 * 
+	 * documented by: David Yu
+	 * **/
 	public PizzaContext(Pizza pizza){
 		this.pizza = pizza;
 		incrementBySize(pizza.getSize());
 	}
 	
+	/**
+	 * Increment based on what size was chosen
+	 * and call its respective method based on choice
+	 * 
+	 * @author Rodolfo Navalon
+	 * 
+	 * documented by: David Yu
+	 * **/
 	public void incrementBySize(Size size){
 		switch(size) 
 		{
@@ -34,6 +57,13 @@ public class PizzaContext {
 		}
 	}
 	
+	/**
+	 * Increment based on what size was chosen
+	 * 
+	 * @author Rodolfo Navalon
+	 * 
+	 * documented by: David Yu
+	 * **/
 	public void incrementSmall(){
 		this.smallCount++;
 	}
@@ -50,6 +80,13 @@ public class PizzaContext {
 		this.xLargeCount++;
 	}
 	
+	/**
+	 * Get the amount for its respective size variable
+	 * 
+	 * @author Rodolfo Navalon
+	 * 
+	 * documented by: David Yu
+	 * **/
 	public int getSmallCount(){
 		return this.smallCount;
 	}
@@ -66,6 +103,13 @@ public class PizzaContext {
 		return this.xLargeCount;
 	}
 	
+	/**
+	 * Set the amount for its respective size variable
+	 * 
+	 * @author Rodolfo Navalon
+	 * 
+	 * documented by: David Yu
+	 * **/
 	public void setSmallCount(int smallCount){
 		this.smallCount = smallCount;
 	}
@@ -82,6 +126,13 @@ public class PizzaContext {
 		this.xLargeCount = xLargeCount;
 	}
 	
+	/**
+	 * Get the pizza object
+	 * 
+	 * @author Rodolfo Navalon
+	 * 
+	 * documented by: David Yu
+	 * **/
 	public Pizza getPizza(){
 		return this.pizza;
 	}
