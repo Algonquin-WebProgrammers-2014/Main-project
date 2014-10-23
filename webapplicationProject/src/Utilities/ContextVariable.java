@@ -30,6 +30,6 @@ public class ContextVariable {
 	}
 	
 	public enum Page {
-		HOME, ORDERNOW, STORELOGIN, SEARCHORDER, MENU, NONE
+		HOME, ORDERNOW, STORELOGIN, SEARCHORDER, MENU, FINDUS, NONE
 	}
 }

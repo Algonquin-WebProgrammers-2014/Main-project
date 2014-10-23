@@ -62,7 +62,7 @@
 				<tr>
 					<th><%=RB.getString("total") %></th>
 					<th colspan="3" id="pizza-total" class="pizza-total">$<c:choose><c:when test="${sessionScope.cart != null}">${sessionScope.cart.totalPrice}</c:when><c:otherwise>0.00</c:otherwise></c:choose></th>
-					<th colspan="2" ><input type="button" class="pizza-total-button" value="<%=RB.getString("checkout") %>"/></th>
+					<th colspan="2" ><input type="button" class="pizza-total-button" onclick="ordernow()" value="<%=RB.getString("checkout") %>"/></th>
 				</tr>
 			</table>
 		</div>

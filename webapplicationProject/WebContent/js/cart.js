@@ -163,3 +163,7 @@ function callNotication(s,t){
 function hideFloatinNotif(){
 	document.getElementById('floating-notif').setAttribute("style", "display:none;");
 }
+
+function ordernow(){
+	window.location.href = "http://" + window.location.host + "/webapplicationProject/webapp/verification/user/";
+}

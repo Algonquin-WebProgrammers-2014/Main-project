@@ -23,10 +23,10 @@
 						<i class="icon-arrow-right icon-large">English</i>
 					</button>
 					<button class="lang-submit" id="buttonexplode" type="submit" name="french" >
-						<i class="icon-arrow-right icon-large">French</i>
+						<i class="icon-arrow-right icon-large">French - Français</i>
 					</button>
 					<button class="lang-submit" id="buttonexplode" type="submit" name="chinese" >
-						<i class="icon-arrow-right icon-large">Chinese</i>
+						<i class="icon-arrow-right icon-large">Chinese - 中國</i>
 					</button>
 				
 			</form>

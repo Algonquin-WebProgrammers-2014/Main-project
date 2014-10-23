@@ -37,7 +37,7 @@ Added in Version: 0.2
 	
 	<div class="master-container">
 		<%@ include file="/includes/header_menu.jsp" %>
-		<div class="parent-container">
+		<div class="parent-container" style="margin-top:200px">
 			<form id="effectsExplode" class="form-1" method="POST" action="${pageContext.request.contextPath}/storelogin">
 				<p class="field">
 					<input type="text" name="storeid" placeholder="<%= RB.getString("storeid") %>">

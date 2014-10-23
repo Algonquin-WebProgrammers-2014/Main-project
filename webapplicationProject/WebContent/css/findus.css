@@ -1,0 +1,88 @@
+@CHARSET "ISO-8859-1";
+
+.master-container{
+	padding-bottom: 10px;
+}
+
+.static-map{
+	border: 1px solid #f46a35;
+	width: 200px;
+	height: 150px;
+	cursor: pointer;
+}
+
+/**
+	parent table
+**/
+
+.master-container .findus-main-table{
+	margin: 20px auto 15px;
+	border-collapse: collapse; 
+	font-size:17px;
+	
+}
+
+.findus-main-table tr {
+	border: 1px solid #000000;
+}
+
+
+.findus-main-table tr td:not(:last-child) {
+	padding-bottom: 15px;
+	padding-left: 15px;
+	
+}
+
+.findus-main-table .findus-main-table-header {
+	border: 1px solid #000000;
+}
+
+.master-container .findus-main-table th{
+	font-size: 40px;
+	color:#fff;	
+	font-family: "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+	background-color: rgba(132, 153, 255, 0.9);
+	background: rgba(132, 153, 255, 0.9);
+	padding-bottom: 10px;
+}
+
+/**
+	table row Map section
+**/ 
+
+.findus-main-table tr .findus-main-table-map{
+	padding-top: 15px;
+}
+
+/**
+	table row Info section
+**/
+
+.findus-main-table tr .findus-main-table-info{
+	text-align: center;
+	vertical-align:bottom;
+	position: relative;
+}
+.findus-main-table tr .findus-main-table-info .findus-main-table-info-location span{
+	font-size: 22px; 
+	font-weight: bold;
+}
+
+
+
+.findus-main-table tr .findus-main-table-info .findus-main-table-info-location {
+	position:absolute; 
+	top:20px;
+	left:0;
+	right:0
+}
+
+.findus-main-table tr .findus-main-table-info table{
+	text-align:left;
+	border-spacing: 10px;
+    border-collapse: separate;
+}
+
+.findus-main-table tr .findus-main-table-info table tr{
+	vertical-align: top;
+}

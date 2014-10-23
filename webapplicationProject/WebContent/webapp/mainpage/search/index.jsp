@@ -30,7 +30,7 @@
 
 	<div class="master-container">
 		<%@ include file="/includes/header_menu.jsp" %>
-		<div class="parent-container">
+		<div class="parent-container" style="margin-top:215px">
 			<form id="effectsExplode" class="form-1" method="POST" action="${pageContext.request.contextPath}/userlogin">
 				<p class="field">
 					<input type="text" name="first_name" placeholder="<%= RB.getString("phone") %>">

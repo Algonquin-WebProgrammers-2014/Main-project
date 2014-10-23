@@ -64,15 +64,27 @@
 						<a class="child-a-or">or</a>
 				</div>
 				
-				<form id="effectsExplode" class="form-1" method="POST" action="${pageContext.request.contextPath}/userlogin">
+				<form id="effectsExplode" class="form-1" method="POST" action="${pageContext.request.contextPath}/order">
 					<p class="field">
-						<input type="text" name="first_name" placeholder="<%= RB.getString("phone") %>">
+						<input type="text" name="firstname" placeholder="<%= RB.getString("firstname") %>">
+						<i class="icon-user icon-large"></i>
+					</p>
+					<p class="field">
+						<input type="text" name="lastname" placeholder="<%= RB.getString("lastname") %>">
+						<i class="icon-user icon-large"></i>
+					</p>
+					<p class="field">
+						<input type="text" name="phonenumber" placeholder="<%= RB.getString("phone") %>">
+						<i class="icon-user icon-large"></i>
+					</p>
+					<p class="field">
+						<input type="text" name="address" placeholder="<%= RB.getString("address") %>">
 						<i class="icon-user icon-large"></i>
 					</p>
 					
 					<p class="submit">
 						<button class="submitButton" id="buttonexplode" type="submit" name="loginsubmit" >
-							<i class="icon-arrow-right icon-large"><%= RB.getString("enter") %></i>
+							<i class="icon-arrow-right icon-large"><%= RB.getString("submitorder") %></i>
 						</button>
 					</p>
 			
