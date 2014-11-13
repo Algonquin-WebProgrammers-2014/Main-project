@@ -99,6 +99,13 @@
 	text-shadow: 0px 0px 6px #83d244;
 }
 
+.parent-div .child-div .right-container-status .check-mark-selected {
+	color: #83d244;
+	font-size: 28px;
+	text-decoration: none;
+	text-shadow: 0px 0px 6px #83d244;
+}
+
 
 .parent-div .child-div .right-container-status .check-mark {
 	font-size: 28px;
@@ -291,7 +298,7 @@
 }
 
 .parent-div .child-info-div {
-	width: 30%;
+	width: 500px;
 	margin: 0 auto;
 	margin-top: 5px;
 	overflow: hidden;
@@ -301,7 +308,7 @@
 	background: linear-gradient(#eeefef, #ffffff 40%);
 	padding: 15px;
 	border-radius: 5px;
-	display: none;
+	display: block;
 }
 
 .parent-div .child-info-div i {

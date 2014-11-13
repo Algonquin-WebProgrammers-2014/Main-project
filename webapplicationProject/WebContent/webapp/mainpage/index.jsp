@@ -10,6 +10,7 @@
 	<head>
 		<link href="${pageContext.request.contextPath}/css/headerfooter.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/master.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/home.css">
 		<title>Pizza Ordering System Title Here</title>
 	</head>
 </head>
@@ -25,7 +26,17 @@
 	
 	<div class='master-container'>
 		<%@ include file="/includes/header_menu.jsp" %>
-		<h1>Welcome to the homepage</h1>
+		<div class="home-main-container">
+			<h1>Welcome to the homepage</h1>
+			<div class="home-child-container">
+				<div class="home-child-container-left">
+					<div>Pizza of the day</div>
+				</div>
+				<div class="home-child-container-right">
+					<div>Recent Order</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	
 	<%@ include file="/includes/footer.jsp" %>

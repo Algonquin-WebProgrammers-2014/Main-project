@@ -14,6 +14,10 @@
   	<servlet-class>net.order.Order</servlet-class>
   </servlet>
   <servlet>
+  	<servlet-name>AdminLogin</servlet-name>
+  	<servlet-class>net.login.AdminLogin</servlet-class>
+  </servlet>
+  <servlet>
   	<servlet-name>StoreLogin</servlet-name>
   	<servlet-class>net.login.StoreLogin</servlet-class>
   </servlet>
@@ -34,7 +38,10 @@
   	<servlet-class>net.session.SessionSetter</servlet-class> 
   </servlet>
   
-  
+  <servlet-mapping>
+  	<servlet-name>AdminLogin</servlet-name>
+  	<url-pattern>/adminlogin</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>UserLogin</servlet-name>
   	<url-pattern>/userlogin</url-pattern>

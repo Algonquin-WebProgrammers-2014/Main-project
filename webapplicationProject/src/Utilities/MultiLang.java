@@ -37,4 +37,16 @@ public class MultiLang {
 		return rb;
 		
 	}
+	
+	public static ResourceBundle generateDatabaseResourceBdl()
+	{
+		Locale locale = null;
+		
+		locale = new Locale("nn");
+		
+		ResourceBundle rb = ResourceBundle.getBundle("database", locale);
+		
+		return rb;
+		
+	}
 }

@@ -30,12 +30,21 @@ function addToCart(id){
 		return false;
 	}
 	
+	if(small == '')
+		small = 0+"";
+	if(medium == '')
+		medium = 0+"";
+	if(large == '')
+		large = 0+"";
+	if(xlarge == '')
+		xlarge = 0+"";
+	
 	if(window.XMLHttpRequest)
 	{
 		xmlhttp = new XMLHttpRequest();
 	} else 
 	{
-		xmlhttp = new ActiveXObject("Microsoft.XMLHttp");
+		xmlhttp = new ActiveXObject('Microsoft.XMLHTTP')
 	}
 	
 	xmlhttp.onreadystatechange = function() 
@@ -47,7 +56,7 @@ function addToCart(id){
 		}
 	}
 	
-	xmlhttp.open("GET", "http://" + window.location.host + "/webapplicationProject/cartupdate?type="+ type +"&name="+ name +"&initial=" + initial + "&s=" + small + "&m=" + medium + "&l=" + large + "&xl=" + xlarge);
+	xmlhttp.open("GET", "http://" + window.location.host + "/webapplicationProject/cartupdate?type="+ type +"&name="+ name +"&initial=" + initial + "&s=" + small + "&m=" + medium + "&l=" + large + "&xl=" + xlarge + "&timeStamp="+new Date().getTime());
 	xmlhttp.send();
 	
 	resetInput(id);

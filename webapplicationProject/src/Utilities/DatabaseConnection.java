@@ -10,8 +10,10 @@ package Utilities;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ResourceBundle;
 
 public class DatabaseConnection {
 	
@@ -25,8 +27,9 @@ public class DatabaseConnection {
 	 * @return					The Connection class to the Database	
 	 * **/
 	public static Connection createDataBaseConnection(String database, String username, String password) throws ClassNotFoundException, SQLException {
+		ResourceBundle rb =  MultiLang.generateDatabaseResourceBdl();
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:8888/"+database,username,password);
+		Connection conn = DriverManager.getConnection(rb.getString("db"),rb.getString("username"),rb.getString("password"));
 		return conn;
 	}
 	
@@ -46,6 +49,18 @@ public class DatabaseConnection {
 		{
 			if(s2 != null)
 				s2.close();
+		}
+	}
+	
+public static void closeDataBaseConnectionWithPreparred(Connection conn, PreparedStatement... p) throws SQLException {
+		
+		if(conn != null)
+			conn.close();
+		
+		for(PreparedStatement p2 : p)
+		{
+			if(p2 != null)
+				p2.close();
 		}
 	}
 	

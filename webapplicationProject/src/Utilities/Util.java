@@ -8,6 +8,9 @@
 
 package Utilities;
 
+import java.math.BigInteger;
+import java.security.SecureRandom;
+
 import pizza.SpecialPizza;
 import Utilities.ContextVariable.Size;
 
@@ -45,4 +48,9 @@ public class Util {
 				pizza.add(new SpecialPizza(name, size, initial));
 		}
 	}
+	
+	
+	public static String createId() {
+	      return new BigInteger(75, new SecureRandom()).toString(32);
+	    }
 }

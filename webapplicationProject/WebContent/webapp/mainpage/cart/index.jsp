@@ -70,7 +70,6 @@
 	</div>
 	
 	<%@ include file="/includes/footer.jsp" %>
-	<%@ include file="/includes/notification.jsp" %>
 	
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/cart.js"></script>
 </body>

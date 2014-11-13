@@ -1,10 +1,3 @@
-/**
- * Responsible for checking the password in the database for store users
- * 
- * @author Rodolfo Navalon
- * @version 0.1
- * @see StoreLogin
- * **/
 package net.login;
 
 import java.io.IOException;
@@ -24,7 +17,7 @@ import javax.servlet.http.HttpSession;
 import SecureAuthentication.Authenticator;
 import Utilities.DatabaseConnection;
 
-public class StoreLogin extends HttpServlet{
+public class AdminLogin extends HttpServlet{
 
 	private final String db = "storedb";
 	private final String username = "rodolfouser";
@@ -37,7 +30,7 @@ public class StoreLogin extends HttpServlet{
 	 * @param message	the message to be shown in the alert box
 	 */
 	public void showAlert(HttpServletResponse resp, String message) throws IOException{
-		resp.getWriter().print("<script>alert('"+message+"');location='webapp/verification/store/'</script>");
+		resp.getWriter().print("<script>alert('"+message+"');location='webapp/verification/admin/'</script>");
 	}
 	
 	/**
@@ -56,27 +49,25 @@ public class StoreLogin extends HttpServlet{
 			conn = DatabaseConnection.createDataBaseConnection(db,username,password);
 			s = conn.createStatement();
 			
-			String username = req.getParameter("storeid");
+			String username = req.getParameter("username");
 			String password = req.getParameter("password");
 			
 			//create the session object
 			session = req.getSession();
 			
-			ResultSet result = s.executeQuery("SELECT password FROM store WHERE storeid = '"+username +"'");
+			ResultSet result = s.executeQuery("SELECT password FROM user WHERE username = '"+username +"'");
 
 			while(result.next())
 			{
 				String dataPassword = result.getString("password");
 				if(Authenticator.validatePassword(password, dataPassword))
 				{
-					resp.getWriter().println("\n\nRESULT: Password from USERNAME exist in DATABASE. You are log in to the server");
-					resp.sendRedirect("webapp/mainpage/store/orderlist.jsp");
-					session.setAttribute("store", username);
+					resp.sendRedirect("webapp/admin/");
+					session.setAttribute("admin", username);
 				}
 				else
 				{
 					showAlert(resp,"Wrong password or username");
-					
 				}
 					
 				DatabaseConnection.closeDataBaseConnection(conn,s);
@@ -85,7 +76,6 @@ public class StoreLogin extends HttpServlet{
 				
 			showAlert(resp,"Wrong password or username");	
 			DatabaseConnection.closeDataBaseConnection(conn,s);
-			
 
 		} catch (SQLException e) {
 			e.printStackTrace();	
@@ -96,14 +86,8 @@ public class StoreLogin extends HttpServlet{
 			e.printStackTrace();
 		}finally {
 		}
-				
-	}
-	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-		if(req.getParameter("storelogout") != null)
-			req.getSession().removeAttribute("store");
-		resp.sendRedirect("webapp/mainpage/");
+		
+		
+		
 	}
 }

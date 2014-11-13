@@ -30,6 +30,8 @@ public class CartUpdate extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
+		System.out.println("rod");
+		
 		HttpSession session = req.getSession();
 		PizzaCollection pizzaList;
 		
@@ -39,6 +41,7 @@ public class CartUpdate extends HttpServlet{
 		
 		//get the object from the cart session
 		pizzaList = (PizzaCollection)session.getAttribute("cart");
+		
 		
 		//returns the size of  when size is not null and/or size value is equals to y
 		if(req.getParameter("size") != null && req.getParameter("size").equals("y"))
@@ -64,7 +67,7 @@ public class CartUpdate extends HttpServlet{
 		String medium = req.getParameter("m");
 		String large = req.getParameter("l");
 		String xlarge = req.getParameter("xl");
-		
+				
 		//check if the values are zero or empty and add to pizza data structure
 		if(!Util.isEmptyAndZero(small)){
 			Util.addPizzaToList(Integer.parseInt(small), type, Size.SMALL, name, initial, pizzaList);			

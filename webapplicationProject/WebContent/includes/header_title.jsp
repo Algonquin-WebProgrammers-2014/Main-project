@@ -19,7 +19,9 @@
 		} 
 	     ResourceBundle RBheader = MultiLang.generateResourceBdl(request,session);
 	 %>
-	
+	 <audio src="${pageContext.request.contextPath}/audio/success.mp3" id="quack" autostart="false"></audio>
+	 <script type="text/javascript" src="${pageContext.request.contextPath}/js/statusupdate.js"></script>
+	 
 	<div id="header-parent">
 	  	<div id=header>		
 	  			<div id=header-cart>
@@ -29,8 +31,8 @@
 					</div>
 					<div id="cart-icon"><img id="cart-image" src="${pageContext.request.contextPath}/icon/shopping-cart.PNG" onclick="gotocart()"></div>
 				</div>
+				<div id="notification-table" class="notification-table">notification: <span id="notification-number">1</span></div>
 				<div id=header-title><img src="${pageContext.request.contextPath}/icon/pizza2.png"><span><%= RBheader.getString("appname") %></span></div>
-				
 		</div>
 	</div>
 	
@@ -39,6 +41,10 @@
 	document.getElementById('header-title').onclick = function(){
 		var path = "http://" + window.location.host + "/webapplicationProject/webapp/mainpage";
 		document.location.href = path;
+	}
+	
+	document.getElementById('notification-table').onclick = function(){
+		
 	}
 	
 	function gotocart(){

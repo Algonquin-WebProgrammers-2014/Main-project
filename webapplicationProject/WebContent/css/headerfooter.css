@@ -16,7 +16,7 @@
 }
 
 #header {
-	width:50%;
+	width: 900px; 
 	position: relative;
 	margin-left: auto;
 	margin-right: auto;
@@ -37,6 +37,19 @@
 #header-title {
 	cursor: pointer;
 	display:inline-block;
+}
+
+#notification-table{
+	font-family: Consolas, monaco, monospace;
+	margin-right:10px;
+	margin-top: 5px;
+	float:right;
+	color:#fff;
+}
+
+#notification-table span{
+	color:red;
+	cursor:pointer;
 }
 
  #header-cart{
@@ -163,7 +176,7 @@ li {
 /*     padding: 1px; */
 /* } */
 
-li:nth-child(-n+4)>a {
+li:not(:last-child)>a {
 	border-right: 1px solid #8F8F8F;
 }
 

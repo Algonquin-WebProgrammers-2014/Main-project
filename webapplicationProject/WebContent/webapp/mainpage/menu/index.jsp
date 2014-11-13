@@ -22,6 +22,7 @@ Added in Version: 0.2
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/headerfooter.css"/>
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/menu.css"/>
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/master.css">		
+		
 		<title>Pizza Ordering System Title Here</title>
 	</head>
 </head>
@@ -33,6 +34,7 @@ Added in Version: 0.2
 	 <%
 	 	 request.getSession().setAttribute("page", ContextVariable.Page.MENU);
 	     ResourceBundle RB = MultiLang.generateResourceBdl(request,session);
+	     ResourceBundle RB2 = MultiLang.generateDatabaseResourceBdl();
 	     String greeting = RB.getString("language");
 	 %>
 	 
@@ -41,7 +43,7 @@ Added in Version: 0.2
 	
 		<%@ include file="/includes/header_menu.jsp" %>
 	
-		<sql:setDataSource var="menulist" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:8888/storedb" user="rodolfouser" password="poldz123"/>
+		<sql:setDataSource var="menulist" driver="com.mysql.jdbc.Driver" url='<%= RB2.getString("db") %>' user='<%= RB2.getString("username") %>' password='<%= RB2.getString("password") %>'/>
 		
 		<sql:query dataSource="${menulist}" var="result">
 			SELECT * FROM special_pizza_list
@@ -128,7 +130,6 @@ Added in Version: 0.2
 	</div>
 	
 	<%@ include file="/includes/footer.jsp" %>
-	<%@ include file="/includes/notification.jsp" %>
 	
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/menu.js"></script>
 
