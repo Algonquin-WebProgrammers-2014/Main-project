@@ -20,7 +20,7 @@ Status.connect = (function(host) {
 	}
 	
 	Status.socket.onclose = function (){
-		alert('socket is closed');
+		
 	}
 	
 	Status.socket.onmessage = function(message){
