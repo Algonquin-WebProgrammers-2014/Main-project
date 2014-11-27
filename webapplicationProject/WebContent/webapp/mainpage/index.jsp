@@ -30,10 +30,10 @@
 			<h1>Welcome to the homepage</h1>
 			<div class="home-child-container">
 				<div class="home-child-container-left">
-					<div>Pizza of the day</div>
+					<div><%= RB.getString("pizzaday") %></div>
 				</div>
 				<div class="home-child-container-right">
-					<div>Recent Order</div>
+					<div><%= RB.getString("recentorder") %></div>
 				</div>
 			</div>
 		</div>
